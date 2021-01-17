@@ -52,16 +52,12 @@ class Solution1:
                 i += 1
             if not end: break  # 移动后end可能为空
             tmp = end.next
+            end.next = None
             start = prev.next
             prev.next = self.reverse(start)
             start.next = tmp
-
-
-
-        
-
-
-        return ListNode
+            prev = end = start
+        return dummy.next
 
     
     # 反转链表

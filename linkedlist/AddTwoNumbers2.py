@@ -1,0 +1,34 @@
+from linkedlist.selfdefined.ListNode import ListNode
+
+class Solution:
+    def addTwoNumbers2(self, l1: ListNode, l2: ListNode) -> ListNode:
+        stack1 = list()
+        stack2 = list()
+        while l1:
+            stack1.append(l1.val)
+            l1 = l1.next
+        while l2:
+            stack2.append(l2.val)
+            l2 = l2.next
+        carry = 0
+        last = None
+        while stack1 or stack2 or carry > 0:
+            sum = carry
+            sum += 0 if len(stack1) == 0 else stack1.pop()
+            sum += 0 if len(stack2) == 0 else stack2.pop()
+            node = ListNode(sum % 10)
+            node.next = last
+            last = node
+            carry = sum // 10
+        return last
+
+# Test
+from linkedlist.selfdefined.ListNode import ListNode
+from linkedlist.selfdefined.SimpleLinkedList import SimpleLinkedList
+
+lst1 = SimpleLinkedList([7,2,4,3])
+lst2 = SimpleLinkedList([5,6,4])
+l1 = lst1.dummy.next
+l2 = lst2.dummy.next
+res = Solution().addTwoNumbers2(l1,l2)
+res.printNode()
