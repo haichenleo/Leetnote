@@ -1,4 +1,4 @@
-from linkedlist.selfdefined.ListNode import ListNode
+from selfdefined.ListNode import ListNode
 
 class Solution:
     def addTwoNumbers2(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -23,12 +23,9 @@ class Solution:
         return last
 
 # Test
-from linkedlist.selfdefined.ListNode import ListNode
-from linkedlist.selfdefined.SimpleLinkedList import SimpleLinkedList
+from selfdefined.SimpleLinkedList import SimpleLinkedList
 
-lst1 = SimpleLinkedList([7,2,4,3])
-lst2 = SimpleLinkedList([5,6,4])
-l1 = lst1.dummy.next
-l2 = lst2.dummy.next
+l1 = SimpleLinkedList.generate([7,2,4,3])
+l2 = SimpleLinkedList.generate([5,6,4])
 res = Solution().addTwoNumbers2(l1,l2)
-res.printNode()
+SimpleLinkedList.print(res)

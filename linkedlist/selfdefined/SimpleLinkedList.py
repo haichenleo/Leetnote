@@ -2,24 +2,23 @@ from selfdefined.ListNode import ListNode
 
 class SimpleLinkedList:
 
-    def __init__(self, nums: list) -> None:
-        self.dummy = ListNode()
-        self.generate(nums)
+    # def __init__(self, nums: list) -> None:
+    #     self.dummy = ListNode()
+    #     self.generate(nums)
 
-    def generate(self, nums: list) -> ListNode:
-        if not nums:
-            return None
-        curr = self.dummy
+    @staticmethod
+    def generate(nums: list) -> ListNode:
+        dummy = curr = ListNode()
         for n in nums:
-            node = ListNode(n)
-            curr.next = node
+            curr.next = ListNode(n)
             curr = curr.next
+        return dummy.next
 
-    # def print(self):
-    #     curr = self.dummy.next
-    #     while curr:
-    #         if curr.next:
-    #             print(curr.val, '->', end='')
-    #         else:
-    #             print(curr.val)
-    #         curr = curr.next
+    @staticmethod
+    def print(head: ListNode):
+        while head:
+            if head.next:
+                print(head.val, '->', end='')
+            else:
+                print(head.val)
+            head = head.next

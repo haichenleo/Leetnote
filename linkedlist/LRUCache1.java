@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-class LRUCache {
+class LRUCache1 {
 
     class Node {
         private int key, val;
@@ -44,7 +44,7 @@ class LRUCache {
     private HashMap<Integer, Node> cache;
     private DLinkList list;
     private int capacity;
-    public LRUCache(int capacity) {
+    public LRUCache1(int capacity) {
         this.capacity = capacity;
         this.cache = new HashMap<>();
         this.list = new DLinkList();
@@ -70,7 +70,7 @@ class LRUCache {
             this.list.addToHead(node);
             this.list.size ++;
             if (this.list.size() > this.capacity) {
-                this.list.removeNode(this.tail.prev);
+                this.list.removeNode(this.list.tail.prev);
             }
         }
     }

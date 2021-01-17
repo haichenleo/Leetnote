@@ -1,14 +1,9 @@
 import java.util.Stack;
 
-public class AddTwoNumbers2 {
+import selfdefined.CreateList;
+import selfdefined.ListNode;
 
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x){
-            this.val = x;
-        }
-    }
+public class AddTwoNumbers2 {
 
     public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
         Stack<Integer> stack1 = new Stack<>();
@@ -33,5 +28,13 @@ public class AddTwoNumbers2 {
             last = newNode;
         }
         return last;
+    }
+
+    // test
+    public static void main(String[] args) {
+        ListNode l1 = CreateList.create(new int[]{7,2,4,3});
+        ListNode l2 = CreateList.create(new int[]{5,6,4});
+        ListNode res = new AddTwoNumbers2().addTwoNumbers2(l1, l2);
+        CreateList.print(res);
     }
 }
